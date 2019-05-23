@@ -1,2 +1,2 @@
 # shrimpMod
-NetLogo population model for **Farfantepenaeus duorarum**
+NetLogo population model for *Farfantepenaeus duorarum*
