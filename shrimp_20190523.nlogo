@@ -84,7 +84,7 @@ end
 
 to display-bathy
   gis:paint bathymetry 65
-  gis:apply-raster bathymetry submerged
+  ;gis:apply-raster bathymetry submerged
 
 end
 
@@ -151,13 +151,12 @@ to wiggle ; turtle procedure
   rt random 30
   lt random 30
 end
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 210
 10
-339
-220
+499
+420
 -1
 -1
 1.0
@@ -170,10 +169,10 @@ GRAPHICS-WINDOW
 1
 1
 1
--60
-60
--100
-100
+-140
+140
+-200
+200
 0
 0
 1
