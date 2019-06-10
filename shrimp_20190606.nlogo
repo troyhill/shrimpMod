@@ -350,11 +350,11 @@ end
 GRAPHICS-WINDOW
 210
 10
-793
-840
+1340
+1621
 -1
 -1
-10.0
+2.0
 1
 10
 1
@@ -451,13 +451,25 @@ PENS
 @#$#@#$#@
 ## WHAT IS IT?
 
-A model of shrimp population dynamics in Biscayne Bay.
-(a general understanding of what the model is trying to show or explain)
+A model of shrimp population dynamics in Biscayne Bay, in response to seasonal changes in salinity and temperature
+
 
 ## HOW IT WORKS
 
-Shrimp behavior is modeled based on effects of habitat quality on survival/mortality and fitness/reproduction.
-(what rules the agents use to create the overall behavior of the model)
+Shrimp behavior is modeled based on effects of salinity and/or temperature on growth and mortality. Shrimp (turtles) navigate the bay in a random walk pattern, exposing themselves to salinities and temperatures (patches) that vary on a wet/dry season basis (where wet season is May 01 - September 30). 
+
+Salinity and temperature data are sourced from Miami-Dade Department of Environmental Resources Management and DataForEver. Data for each station are averaged over each wet/dry season and then spatially interpolated across the bay using a nearest-neighbor approach based on Voronoi tesselation. Nearest-neighbor was used because of convergence problems observed during inverse distance weighted interpolation. These interpolated rasters are not provided with the GitHub package because of size constraints.
+
+Growth is modeled as a size- and temperature-dependent process following eq. 1-4 in Browder et al. 1999.
+
+Physiological mortality is modeled as a function of salinity and temperature following eq. 3-5 in Browder et al. 2002. 
+
+Predation mortality is modeled as a size-dependent process following eq. 6 in Browder et al. 2002. 
+
+Fishing mortality is size-dependent and assumed to be a constant 0.003853 daily rate after shrimp reach 78.4 mm total length (Browder et al. 2002).
+
+The sum of mortality from physiological, predation, and fishing pressures are applied to determine the probability of each shrimp's survival at each time step.
+
 
 ## HOW TO USE IT
 
@@ -465,6 +477,7 @@ Shrimp behavior is modeled based on effects of habitat quality on survival/morta
 
 ## THINGS TO NOTICE
 
+Notice that variations in salinity and temperature are not adequate to lead to 
 (suggested things for the user to notice while running the model)
 
 ## THINGS TO TRY
@@ -473,19 +486,16 @@ Shrimp behavior is modeled based on effects of habitat quality on survival/morta
 
 ## EXTENDING THE MODEL
 
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
+Growth is temperature dependent but should be based on salinity and temperature. I was unable to recreate the analysis in Browder et al. 2002 so am using their earlier work which is limited to temperature, but which I could reproduce.
 
-## NETLOGO FEATURES
+There is no reproduction in the model. 
 
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
+Shrimp movement does not vary with life stage. 
 
-## RELATED MODELS
-
-(models in the NetLogo Models Library and elsewhere which are of related interest)
 
 ## CREDITS AND REFERENCES
 
-(a reference to the model's URL on the web if it has one, as well as any other necessary credits, citations, and links)
+https://github.com/troyhill/shrimpMod
 @#$#@#$#@
 default
 true
