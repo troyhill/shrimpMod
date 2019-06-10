@@ -473,16 +473,11 @@ The sum of mortality from physiological, predation, and fishing pressures are ap
 
 ## HOW TO USE IT
 
-(how to use the model, including a description of each of the items in the Interface tab)
+Click the "Setup" button, then click the "Go" button. Model will not complete setup without raster salinity/temperature layers.
 
 ## THINGS TO NOTICE
 
-Notice that variations in salinity and temperature are not adequate to lead to 
-(suggested things for the user to notice while running the model)
-
-## THINGS TO TRY
-
-(suggested things for the user to try to do (move sliders, switches, etc.) with the model)
+Notice that variations in salinity and temperature are not adequate to lead to population-level differences in size.
 
 ## EXTENDING THE MODEL
 
@@ -496,6 +491,7 @@ Shrimp movement does not vary with life stage.
 ## CREDITS AND REFERENCES
 
 https://github.com/troyhill/shrimpMod
+
 @#$#@#$#@
 default
 true
